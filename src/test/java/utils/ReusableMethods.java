@@ -16,13 +16,7 @@ import java.util.Date;
 import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
-   // static Faker faker;
-//    static Actions actions;
 
-    //====== Actions ======//
-//    public static Actions getActions() { //getActions method
-//        return actions = new Actions(Driver.getDriver());
-//    }
 
     public static WebElement waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
@@ -32,24 +26,7 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-//    public static WebElement waitForClickablility(WebElement element, int timeout) {
-//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
-//        return wait.until(ExpectedConditions.elementToBeClickable(element));
-//    }
-//    public static WebElement waitForClickablility(By locator, int timeout) {
-//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
-//        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-//    }
-//    public static void clickWithTimeOut(WebElement element, int timeout) {
-//        for (int i = 0; i < timeout; i++) {
-//            try {
-//                element.click();
-//                return;
-//            } catch (WebDriverException e) {
-//                waitFor(1);
-//            }
-//        }
-//    }
+
 
     public static void clickElement(WebElement element) {
         waitForVisibility(element, 9);
@@ -70,9 +47,7 @@ public class ReusableMethods {
     }
 
 
-//    public static Faker getFaker() { // getFaker method
-//        return faker = new Faker();
-//    }
+
     public static void jsScroll(WebElement webElement){
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         try {
@@ -94,45 +69,9 @@ public class ReusableMethods {
 
         }
     }
-//    public static String  getValueWithJs(String elementId){
-//        JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
-//        String value=js.executeScript("return document.getElementById('"+elementId+"').value").toString();
-//        return value;
-//    }
-//    public static String getScreenshot(String name) throws IOException {
-//        // naming the screenshot with the current date to avoid duplication
-//        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-//        // TakesScreenshot is an interface of selenium that takes the screenshot
-//        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
-//        File source = ts.getScreenshotAs(OutputType.FILE);
-//        // full path to the screenshot location
-//        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
-//        File finalDestination = new File(target);
-//        // save the screenshot to the path given
-//        FileUtils.copyFile(source, finalDestination);
-//        return target;
-//    }
 
-    //========ScreenShot Web Element(Bir webelementin resmini alma)=====//
-//    public static String getScreenshotWebElement(String name,WebElement element) throws IOException {
-//        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-//        // TakesScreenshot is an interface of selenium that takes the screenshot
-//        File source = element.getScreenshotAs(OutputType.FILE);
-//        // full path to the screenshot location
-//        String wElementSS = System.getProperty("user.dir") + "/target/WElementScreenshots/" + name + date + ".png";
-//        File finalDestination = new File(wElementSS);
-//        // save the screenshot to the path given
-//        FileUtils.copyFile(source, finalDestination);
-//        return  wElementSS;
-//    }
-//    public void clickIfItIsNotChecked(WebElement webElement){
-//        waitForVisibility(webElement,9);
-//        if(!webElement.isSelected()){
-//            jsclick(webElement);
-//        }
-//    }
-    //   HARD WAIT WITH THREAD.SLEEP
-//   waitFor(5);  => waits for 5 second
+
+
     public static void waitFor(int sec) {
         try {
             Thread.sleep(sec * 1000);
@@ -141,21 +80,5 @@ public class ReusableMethods {
         }
     }
 
-//    public void clickIfItIsChecked(WebElement webElement){
-//        waitForVisibility(webElement,9);
-//        if(webElement.isSelected()){
-//            jsclick(webElement);
-//        }
-//    }
 
-//    public boolean isNumberIsBiggerThanTheNumber(WebElement element,int numb){
-//        return Integer.parseInt(element.getText())>numb;
-//    }
-//    public boolean isNumberIsBiggerThanTheNumber(WebElement element,double numb){
-//        return Double.parseDouble(element.getText())>numb;
-//    }
-//    public static void setValueByJS(WebElement element, String key, String text) {
-//        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-//        js.executeScript("arguments[0].setAttribute('" + key + "','" + text + "')", element);
-//    }
 }
